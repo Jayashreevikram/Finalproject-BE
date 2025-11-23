@@ -3,7 +3,7 @@ const User = require("../models/user");
 const auth = require("../middleware/auth");
 const router = express.Router();
 
-// SIGNUP route
+
 router.post("/signup", auth, async (req, res) => {
   try {
     const { uid, email, name } = req.user;
@@ -21,7 +21,7 @@ router.post("/signup", auth, async (req, res) => {
   }
 });
 
-// LOGIN route
+
 router.post("/login", auth, async (req, res) => {
   try {
     const { uid, email, name } = req.user;

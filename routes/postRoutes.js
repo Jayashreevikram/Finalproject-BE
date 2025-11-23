@@ -3,7 +3,7 @@ const auth = require("../middleware/auth");
 const Post = require("../models/post");
 const router = express.Router();
 
-/* ------------------------ CREATE POST ------------------------ */
+
 router.post("/create", auth, async (req, res) => {
   try {
     const { title, description, techStack, github } = req.body;
@@ -23,7 +23,7 @@ router.post("/create", auth, async (req, res) => {
   }
 });
 
-/* ------------------------ GET ALL POSTS ------------------------ */
+
 router.get("/all", async (req, res) => {
   try {
     const posts = await Post.find().sort({ createdAt: -1 });
@@ -34,7 +34,7 @@ router.get("/all", async (req, res) => {
   }
 });
 
-/* ------------------------ LIKE POST ------------------------ */
+
 router.put("/like/:id", auth, async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(
@@ -49,7 +49,7 @@ router.put("/like/:id", auth, async (req, res) => {
   }
 });
 
-/* ------------------------ COMMENT ON POST ------------------------ */
+
 router.post("/comment/:id", auth, async (req, res) => {
   try {
     const { comment } = req.body;
@@ -67,7 +67,7 @@ router.post("/comment/:id", auth, async (req, res) => {
   }
 });
 
-/* ------------------------ UPDATE POST ------------------------ */
+
 router.put("/update/:id", auth, async (req, res) => {
   try {
     const updated = await Post.findByIdAndUpdate(
@@ -83,7 +83,7 @@ router.put("/update/:id", auth, async (req, res) => {
   }
 });
 
-/* ------------------------ DELETE POST ------------------------ */
+
 router.delete("/delete/:id", auth, async (req, res) => {
   try {
     await Post.findByIdAndDelete(req.params.id);

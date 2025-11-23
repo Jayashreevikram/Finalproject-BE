@@ -5,7 +5,7 @@ const cors = require("cors");
 const admin = require("firebase-admin");
 require("dotenv").config();
 
-// Firebase Admin initialization
+
 const serviceAccount = require("./serviceAccount.json");
 
 admin.initializeApp({
@@ -24,10 +24,10 @@ app.use(
 );
 
 
-// Connect MongoDB
+
 connectDB();
 
-// Routes
+
 app.use("/api/user", require("./routes/userRoutes"));
 app.use("/api/posts", require("./routes/postRoutes"));
 
